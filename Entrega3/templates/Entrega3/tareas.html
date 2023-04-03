@@ -1,0 +1,11 @@
+{% extends 'Entrega3/base.html'%}
+
+{%block titulo%} Listado de Tareas {%endblock%}
+
+{% block listado %}
+<ul>
+    {%  for tarea in tareas %}
+        <li>{{ tarea.nombre }} - {{ tarea.creado_el }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

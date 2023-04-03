@@ -1,0 +1,12 @@
+{% extends 'Entrega3/base.html' %}
+
+{% block listado %}
+{% block title %}{{ object.nombre }}{% endblock %}
+  <p>Precio: ${{ object.precio }}</p>
+  <a href="{% url 'producto-update' object.pk %}">Editar</a>
+  <form action="{% url 'producto-delete' object.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Eliminar">
+  </form>
+  <a href="{% url 'productos' %}">Volver a productos</a>
+{% endblock %}

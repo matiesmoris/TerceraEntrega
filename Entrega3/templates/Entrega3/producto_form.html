@@ -1,0 +1,11 @@
+{% extends 'Entrega3/base.html' %}
+
+{% block listado %}
+  <h1>{% if view.action == 'create' %}Crear{% else %}Editar{% endif %} producto</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Guardar">
+  </form>
+  <a href="{% url 'producto-list' %}">Volver a la lista de productos</a>
+{% endblock %}

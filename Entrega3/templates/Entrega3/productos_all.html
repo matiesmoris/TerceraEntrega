@@ -1,0 +1,12 @@
+{% extends 'Entrega3/base.html' %}
+{% block listado %}
+  <h1>Lista de productos</h1>
+  <ul>
+    {% for producto in productos %}
+      <li><a href="{% url 'producto-detail' producto.pk %}">{{ producto.nombre }}</a></li>
+    {% empty %}
+      <li>No hay productos disponibles</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'producto-create' %}">Crear nuevo producto</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'Entrega3/base.html'%}
+{%block titulo%} Listado de Productos {%endblock%}
+
+{%block listado%}
+
+<form action="{% url 'producto-create' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Guardar">
+</form>
+
+<ul>
+    {%  for producto in productos %}
+    <li>{{producto}}
+        <a href="{% url 'producto-delete' producto.id %}">Borrar</a></li><li><a href="{% url 'producto-detail' producto.pk %}">Detalle</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'producto-create' %}">Crear nuevo producto</a>
+{% endblock %}
+
+{% block title %} Total: {{total_productos}} {% endblock %}
